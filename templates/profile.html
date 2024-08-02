@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container mt-5 pt-4">
+    <div class="col-md-12 text-center">
+        <h2>{{ user.Name }}</h2>
+    <div class="row mb-4">
+        <!-- Medical History Section -->
+        <div class="col-md-6 mb-3">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Medical History</h4>
+                </div>
+                <div class="card-body">
+                    <a href="{{ url_for('add_history') }}" class="btn btn-primary mb-3">Add Medical History</a>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Condition</th>
+                                <th>Description</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for history in medical_history %}
+                            <tr>
+                                <td>{{ history.condition }}</td>
+                                <td>{{ history.description }}</td>
+                                <td>{{ history.date_added.strftime('%Y-%m-%d') }}</td>
+                            </tr>
+                            {% endfor %}
+                            {% if not medical_history %}
+                            <tr>
+                                <td colspan="3" class="text-center">No medical history available.</td>
+                            </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Medications Section -->
+        <div class="col-md-6 mb-3">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Medications</h4>
+                </div>
+                <div class="card-body">
+                    <a href="{{ url_for('add_medication') }}" class="btn btn-primary mb-3">Add Medication</a>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Dosage</th>
+                                <th>Frequency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for medication in medications %}
+                            <tr>
+                                <td>{{ medication.name }}</td>
+                                <td>{{ medication.dosage }}</td>
+                                <td>{{ medication.frequency }}</td>
+                            </tr>
+                            {% endfor %}
+                            {% if not medications %}
+                            <tr>
+                                <td colspan="3" class="text-center">No medications available.</td>
+                            </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

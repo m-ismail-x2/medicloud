@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container mt-5 pt-4">
+    <h2>Healthy Meals</h2>
+    <div class="row">
+        {% for meal in meals %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ meal.image }}" class="card-img-top" alt="{{ meal.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ meal.name }}</h5>
+                    <a href="{{ url_for('nutrition', recipe_id=meal.id) }}" class="btn btn-primary">Nutrition Info</a>
+                    <a href="{{ url_for('recipe', recipe_id=meal.id) }}" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-12">
+            <div class="alert alert-info">
+                <p>No meal suggestions available at the moment.</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

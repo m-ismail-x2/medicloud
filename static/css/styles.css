@@ -1,0 +1,199 @@
+/* Global Styles */
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    border-bottom: 3px solid #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff !important;
+}
+
+.nav-link {
+    color: #fff !important;
+}
+
+.nav-link:hover {
+    color: #cce7ff !important;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.card img {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+div.card-header.text-white {
+    background-color: #007bff;
+    border-radius: 15px 15px 0 0;
+}
+
+.card-title {
+    color: #007bff;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    margin-bottom: 15px;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+
+/* Home Cards */
+.row.equal-height {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+.row.equal-height .card {
+    flex: 1 1 calc(33.333% - 16px);
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .row.equal-height .card {
+        flex: 1 1 calc(50% - 16px);
+    }
+}
+
+@media (max-width: 480px) {
+    .row.equal-height .card {
+        flex: 1 1 calc(100% - 16px);
+    }
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background-color: #0056b3;
+    border: none;
+}
+
+.btn-primary:disabled {
+    background-color: #007bff;
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* Alerts */
+.alert {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Jumbotron */
+.jumbotron {
+    background-color: #0056b3;
+    color: white;
+    padding: 2rem 1rem;
+    border-radius: 15px;
+}
+
+.jumbotron .btn-primary {
+    background-color: #0056b3;
+    border: none;
+    padding: 10px 20px;
+}
+
+.jumbotron .btn-primary:hover, .jumbotron .btn-primary:focus {
+    background-color: #004080;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .jumbotron {
+        padding: 1.5rem 1rem;
+    }
+
+    .jumbotron .display-4 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    .card-body {
+        padding: 10px;
+    }
+}

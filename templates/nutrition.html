@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container mt-5 pt-4">
+    <h2>Nutrition Information</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Calories:</h4>
+            <p>{{ nutrition.calories }} kcal</p>
+        </div>
+        <div class="col-md-6">
+            <h4>Protein:</h4>
+            <p>{{ nutrition.protein }} g</p>
+        </div>
+        <div class="col-md-6">
+            <h4>Carbohydrates:</h4>
+            <p>{{ nutrition.carbs }} g</p>
+        </div>
+        <div class="col-md-6">
+            <h4>Fat:</h4>
+            <p>{{ nutrition.fat }} g</p>
+        </div>
+    </div>
+    <a href="{{ url_for('meals') }}" class="btn btn-primary mt-4">Back to Meals</a>
+</div>
+{% endblock %}
