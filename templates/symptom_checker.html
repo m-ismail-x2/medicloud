@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1 class="text-center">Symptom Checker</h1>
+<form method="post">
+    <div class="form-group">
+        <label for="gender">Symptoms (comma separated or " and " seperated)</label>
+        <input type="text" id="symptoms" name="symptoms" class="form-control" placeholder="eg. symptom, symptom and symptom" required>
+    </div>
+    <div class="form-group">
+        <label for="age">Gender</label>
+        <select id="gender" name="gender" class="form-control">
+            <option value="">Optional</option>
+            <option value="2">Male</option>
+            <option value="3">Female</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" class="form-control"placeholder="Enter your age (optional)">
+    </div>
+    <div class="form-group">
+        <label for="temp">Temperature</label>
+        <input type="number" step="0.1" id="temp" name="temp" class="form-control"placeholder="Enter your temperature (optional)">
+    </div>
+    <div class="form-group">
+        <label for="BMI">BMI</label>
+        <input type="number" step="0.1" id="BMI" name="BMI" class="form-control"placeholder="Enter your Body Mass Index (optional)">
+    </div>
+    <div class="form-group">
+        <label for="SBP">Systolic blood pressure</label>
+        <input type="number" step="1" id="SBP" name="SBP" class="form-control"placeholder="Enter your blood pressure (optional)">
+    </div>
+    <div class="form-group">
+        <label for="DBP">Diastolic blood pressure</label>
+        <input type="number" step="1" id="DBP" name="DBP" class="form-control"placeholder="Enter your blood pressure (optional)">
+    </div>
+    <button type="suBMIt" class="btn btn-primary">SuBMIt</button>
+</form>
+
+{% if advice or disease_info or treatment_recommendations %}
+    <div class="mt-4">
+        {% if advice %}
+            <h3>Advice</h3>
+            <p>{{ advice }}</p>
+        {% endif %}
+        
+        {% if disease_info %}
+            <h3>Disease Information</h3>
+            <p>{{ disease_info }}</p>
+        {% endif %}
+
+        {% if treatment_recommendations %}
+            <h3>Treatment Recommendations</h3>
+            <p>{{ treatment_recommendations }}</p>
+        {% endif %}
+    </div>
+{% endif %}
+
+{% if flash_messages %}
+    <div class="alert alert-danger mt-4">
+        {% for message in flash_messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+{% endblock %}

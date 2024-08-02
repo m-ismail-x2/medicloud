@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container mt-5 pt-4">
+    <h2>Add Medical History</h2>
+    
+    <div class="card">
+        <div class="card-body">
+            <form method="post">
+                <div class="form-group">
+                    <label for="condition">Condition</label>
+                    <input type="text" class="form-control" id="condition" name="condition" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" id="description" name="description"></textarea>
+                </div>
+                <button type="suBMIt" class="btn btn-primary">Add History</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

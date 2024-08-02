@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container mt-5 pt-4">
+    <h2>Add Medication</h2>
+    
+    <!-- Form for Adding Medications -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4 class="card-title">Add New Medication</h4>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div class="form-group">
+                    <label for="name">Medication Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="dosage">Dosage</label>
+                    <input type="text" class="form-control" id="dosage" name="dosage" required>
+                </div>
+                <div class="form-group">
+                    <label for="frequency">Frequency</label>
+                    <input type="text" class="form-control" id="frequency" name="frequency" required>
+                </div>
+                <button type="suBMIt" class="btn btn-primary">Add Medication</button>
+            </form>
+        </div>
+    </div>{% endblock %}
