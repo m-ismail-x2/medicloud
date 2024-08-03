@@ -48,7 +48,7 @@ def register():
         email = request.form['email']
         password = generate_password_hash(request.form['password'])
         new_user = User(Name=Name, email=email, password=password)
-        if User.query.filter_by(email=email):
+        if User.query.filter_by(email=email).first():
             flash('Email address already in use. Please choose a different one.', 'danger')
             return render_template('register.html')
 
