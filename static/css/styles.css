@@ -58,6 +58,11 @@ footer {
     border: none;
 }
 
+nav img {
+    height: 30px;
+    margin-right: 3px;
+}
+
 /* Cards */
 .card {
     border: none;
