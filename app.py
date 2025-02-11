@@ -4,6 +4,7 @@
 # pip install -r requirements.txt
 # python app.py
 
+import sys
 import requests
 from flask import Flask, render_template, redirect, url_for, flash, request, session
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -198,4 +199,11 @@ def logout():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(debug=True)
+        
+    host, port = None, None
+    if len(sys.argv) > 1:
+        host = sys.argv[1]
+    if len(sys.argv) > 2:
+        port = sys.argv[2]
+    
+    app.run(host=host, port=port, debug=True)
