@@ -67,8 +67,9 @@ nav img {
 .card {
     border: none;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 8px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card img {
@@ -210,5 +211,14 @@ div.card-header.text-white {
 
     .card-body {
         padding: 10px;
+    }
+}
+
+@media (min-width: 450px) {
+
+    .card:hover.home,
+    .card:focus.home {
+        transform: translateY(-10px);
+        box-shadow: 7px 10px 10px rgba(0, 0, 0, 0.15);
     }
 }
