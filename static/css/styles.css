@@ -21,23 +21,17 @@ header {
     z-index: 1000;
 }
 
-main {
-    flex: 1;
-}
-
 footer {
     position: relative;
     bottom: 0;
     width: 100%;
-    background-color: #007bff;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
+    padding: 10px;
     font-size: 0.9rem;
 }
 
 .navbar {
     margin-bottom: 20px;
+    padding: 3px;
 }
 
 .navbar-brand {
@@ -133,7 +127,9 @@ div.card-header.text-white {
     border: none;
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
     background-color: #0056b3;
     border: none;
 }
@@ -152,20 +148,20 @@ div.card-header.text-white {
 
 /* Jumbotron */
 .jumbotron {
-    background: repeating-linear-gradient(11deg, #007aff, #002751 10vh);
+    background: linear-gradient(215deg, #00cfcf, #0060c9 45vw);
     color: white;
-    padding: 2rem 1rem;
+    padding: 1rem;
     border-radius: 15px;
 }
 
-.jumbotron > h1 {
+.jumbotron>h1 {
     font-size: 4rem;
     margin: 1rem;
 }
 
-.jumbotron > p {
+.jumbotron>p {
     font-size: 20px;
-    margin: 1rem;
+    margin: 10px;
 }
 
 .jumbotron .btn-primary {
@@ -174,7 +170,8 @@ div.card-header.text-white {
     padding: 10px 20px;
 }
 
-.jumbotron .btn-primary:hover, .jumbotron .btn-primary:focus {
+.jumbotron .btn-primary:hover,
+.jumbotron .btn-primary:focus {
     background-color: #004080;
 }
 
@@ -190,17 +187,21 @@ div.card-header.text-white {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .navbar-nav {
         text-align: center;
     }
 
     .jumbotron {
-        padding: 1.5rem 1rem;
+        padding: 0.5rem;
     }
 
     .jumbotron .display-4 {
         font-size: 1.5rem;
+    }
+
+    .jumbotron>h1 {
+        font-size: 3rem;
     }
 }
 
