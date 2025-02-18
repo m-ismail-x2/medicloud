@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="static/images/favicon.png" style="width: 150px;">
+</div>
+
 # Smart Health
 
 ## Video Demo
