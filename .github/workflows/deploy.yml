@@ -1,0 +1,20 @@
+name: Deploy Flask to PythonAnywhere
+
+on:
+  release:
+    types: [published]   # deploy when a new release is published
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to PythonAnywhere
+        uses: umuttopalak/pythonanywhere-deploy-action@v1.1.0
+        with:
+          host: www.pythonanywhere.com
+          username: ${{ vars.PA_USER }}
+          api_token: ${{ secrets.PA_TOKEN}}
+          domain_name: mismail.pythonanywhere.com
