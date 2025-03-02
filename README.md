@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="static/images/favicon.png" style="width: 150px;">
+  <img src="static/images/favicon.png" style="width:25%;margin:1rem;">
 </div>
 
 # Smart Health
