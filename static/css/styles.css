@@ -162,6 +162,7 @@ div.card-header.text-white {
     background-color: #f9f9f9;
     text-align: center;
     width: 30%;
+    margin: 10px;
 }
 
 @media (max-width: 768px) {
