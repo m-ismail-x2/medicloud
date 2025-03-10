@@ -10,7 +10,7 @@
                 <img src="{{ meal.image }}" class="card-img-top" alt="{{ meal.name }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ meal.name }}</h5>
-                    <a href="{{ url_for('nutrition', recipe_id=meal.id) }}" class="btn btn-primary">Nutrition Info</a>
+                    <a href="{{ url_for('nutrition', recipe_id=meal.id) }}" class="btn btn-primary mb-2">Nutrition Info</a>
                     <a href="{{ url_for('recipe', recipe_id=meal.id) }}" class="btn btn-primary">View Recipe</a>
                 </div>
             </div>
