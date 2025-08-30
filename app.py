@@ -196,14 +196,22 @@ def logout():
     flash('Logged out successfully!', 'success')
     return redirect(url_for('index'))
 
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("404.html"), 404
+
+@app.errorhandler(500)
+def server_error(e):
+    return render_template("500.html"), 500
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
         
     host, port = None, None
-    if len(sys.argv) > 1:
+    if len(sys.argv) > 1 and sys.argv[1] != "debug":
         host = sys.argv[1]
-    if len(sys.argv) > 2:
+    if len(sys.argv) > 2 and sys.argv[1] != "debug":
         port = sys.argv[2]
     
-    app.run(host=host, port=port, debug=True)
+    app.run(host=host, port=port, debug=bool("debug" in sys.argv))
