@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="jumbotron text-center">
+    <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f914.png" alt="Not Found" style="width:90px; margin-bottom: 1rem;">
+    <h1 class="display-4" style="font-size:4.5rem;">404</h1>
+    <p class="lead">Not found</p>
+    <hr>
+    <p>The page you are looking for doesn't exist or has been moved.<br>Check the URL or return to the homepage.</p>
+    <a class="btn btn-primary btn-lg mt-3" href="{{ url_for('index') }}"><i class="fas fa-home"></i> Back to Home</a>
+    <p class="text-muted" style="font-size:1.1rem;">If you think this is a mistake, please let us know.</p>
+</div>
+{% endblock %}
