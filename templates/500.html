@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="jumbotron text-center">
+    <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f635-200d-1f4ab.png" alt="Error" style="width:90px; margin-bottom: 1rem;">
+    <h1 class="display-4" style="font-size:4.5rem;">500</h1>
+    <p class="lead">Oops! Something went wrong on our end.</p>
+    <hr class="my-4">
+    <p>We're experiencing an internal server error.<br>Please try again later.</p>
+    <a class="btn btn-primary btn-lg mt-3" href="{{ url_for('index') }}"><i class="fas fa-home"></i> Back to Home</a>
+    <p class="mt-4 text-muted" style="font-size:1.1rem;">If this keeps happening, please contact support.</p>
+</div>
+{% endblock %}
