@@ -2,7 +2,7 @@
    <img src="static/images/favicon.png" style="width:25%;margin:1.5rem;">
    </div>
 
-   ![Version](https://img.shields.io/badge/app%20version-1.4.2-blue)
+   ![Version](https://img.shields.io/badge/Version-1.5.1-blue)
    [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
    [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
    [![Flask PyPI](https://img.shields.io/pypi/v/Flask.svg?label=Flask&color=blue)](https://pypi.org/project/Flask/)
