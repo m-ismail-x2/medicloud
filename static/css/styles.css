@@ -13,6 +13,12 @@ footer {
     font-size: 0.9rem;
 }
 
+.brand{
+    font-weight:700;
+    letter-spacing:1px;
+    font-size:1.7rem;
+}
+
 .navbar {
     margin-bottom: 20px;
     padding: 3px;
@@ -265,6 +271,25 @@ div.card-header.text-white {
 
     .card-body {
         padding: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .brand {
+        font-size: 1.3rem;
+    }
+
+    nav img {
+        height: 35px;
+        width: 35px;
+    }
+    
+    body{
+        font-size: 0.7rem;
+    }
+    
+    .jumbotron>h1 {
+        font-size: 2.3rem;
     }
 }
 
