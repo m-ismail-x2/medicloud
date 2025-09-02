@@ -9,11 +9,11 @@
 <div class="container-lg mt-5">
     <div class="row equal-height">
         <div class="card home">
-            <img src="{{ url_for('static', filename='images/medication.jpg') }}" class="card-img-top" alt="Medication">
+            <img src="{{ url_for('static', filename='images/health_news.jpg') }}" class="card-img-top" alt="Health News">
             <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Medications</h5>
-                <p class="card-text">Manage your medications and dosage schedule.</p>
-                <a href="{{ url_for('add_medication') }}" class="btn btn-primary mt-auto">Manage Medications</a>
+                <h5 class="card-title">Health News</h5>
+                <p class="card-text">Stay updated with the latest health news.</p>
+                <a href="{{ url_for('health_news') }}" class="btn btn-primary mt-auto">Read News</a>
             </div>
         </div>
 
@@ -27,11 +27,11 @@
         </div>
 
         <div class="card home">
-            <img src="{{ url_for('static', filename='images/health_news.jpg') }}" class="card-img-top" alt="Health News">
+            <img src="{{ url_for('static', filename='images/medication.jpg') }}" class="card-img-top" alt="Medication">
             <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Health News</h5>
-                <p class="card-text">Stay updated with the latest health news.</p>
-                <a href="{{ url_for('health_news') }}" class="btn btn-primary mt-auto">Read News</a>
+                <h5 class="card-title">Medications</h5>
+                <p class="card-text">Manage your medications and dosage schedule.</p>
+                <a href="{{ url_for('profile') }}" class="btn btn-primary mt-auto">Manage Medications</a>
             </div>
         </div>
     </div>
