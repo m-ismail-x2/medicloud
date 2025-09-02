@@ -98,8 +98,6 @@ def add_history():
 
 @app.route('/health_news')
 def health_news():
-    if not 'user_id' in session:
-        return redirect(url_for('login'))
     api_key = 'd258a72b3fc2472bac429e09f6516a03'
     url = f'https://newsapi.org/v2/everything?q=health&language=en&apiKey={api_key}'
     response = requests.get(url)
@@ -121,8 +119,6 @@ def health_news():
 
 @app.route('/meals')
 def meals():
-    if not 'user_id' in session:
-        return redirect(url_for('login'))
     try:
         url = 'https://api.spoonacular.com/recipes/complexSearch'
         params = {
