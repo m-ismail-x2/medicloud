@@ -133,13 +133,13 @@ nav img {
     border-top-right-radius: 20px;
 }
 
-div.card-header.text-white {
-    background-color: #007bff;
-    border-radius: 15px 15px 0 0;
+.card-header:first-child {
+    background: linear-gradient(90deg, #1976d2 10%, #00bcd4 100%) !important;
+    color: #fff;
+    border-radius: 20px 20px 0 0;
 }
 
 .card-title {
-    color: #007bff;
     font-size: 1.25rem;
     font-weight: bold;
     margin-bottom: 10px;
