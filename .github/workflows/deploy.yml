@@ -20,5 +20,5 @@ jobs:
           curl --request POST \
           --url "https://www.pythonanywhere.com/api/v0/user/$PA_USERNAME/consoles/" \
           --header "Authorization: Token $PA_API_TOKEN" \
-          --data "executable=python3.12" \
-          --data "command=python3.12 /home/$PA_USERNAME/deploy.py $PA_API_TOKEN\n"
+          --data "executable=bash" \
+          --data "command=export PA_API_TOKEN='$PA_API_TOKEN' && python3.12 /home/$PA_USERNAME/deploy.py\n"
