@@ -256,7 +256,6 @@ nav img {
 .table {
     border-radius: 10px;
     overflow: hidden;
-    word-wrap: normal;
     table-layout: fixed;
 }
 
@@ -270,9 +269,7 @@ nav img {
     transition: 0.2s;
 }
 
-.table * {
-   overflow: hidden; 
-}
+.table td, .table th {padding: 0.75rem 0.25rem;}
 
 /* Responsive Design */
 @media (max-width: 600px) {
@@ -288,6 +285,14 @@ nav img {
     .jumbotron>h1 {
         font-size: 3rem;
     }
+
+    body {
+        font-size: 0.85rem;
+    }
+
+    .card-title {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 576px) {
@@ -300,14 +305,36 @@ nav img {
     }
 }
 
+@media (min-width: 450px) {
+    
+    .col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .card:hover.home,
+    .card:focus.home {
+        transform: translateY(-10px);
+        box-shadow: 7px 10px 10px rgba(0, 0, 0, 0.15);
+    }
+}
+
 @media (max-width: 360px) {
+    .col-md-6, .container, .container-lg {
+        padding: 7px;
+    }
+
+    .navbar-toggle .toggle-bar {
+        width: 35px;
+        height: 3px;
+    }
+
     .brand {
         font-size: 1.3rem;
     }
 
     nav img {
-        height: 35px;
-        width: 35px;
+        height: 30px;
     }
     
     body{
@@ -317,13 +344,5 @@ nav img {
     .jumbotron>h1 {
         font-size: 2.3rem;
     }
-}
 
-@media (min-width: 450px) {
-
-    .card:hover.home,
-    .card:focus.home {
-        transform: translateY(-10px);
-        box-shadow: 7px 10px 10px rgba(0, 0, 0, 0.15);
-    }
 }
