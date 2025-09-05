@@ -252,6 +252,28 @@ nav img {
     font-size: 1rem;
 }
 
+/* Tables */
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+    word-wrap: normal;
+    table-layout: fixed;
+}
+
+.table thead {
+    background: #1976d2;
+    color: #fff;
+}
+
+.table tbody tr:hover {
+    background-color: #0bd3;
+    transition: 0.2s;
+}
+
+.table * {
+   overflow: hidden; 
+}
+
 /* Responsive Design */
 @media (max-width: 600px) {
 
