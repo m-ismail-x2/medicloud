@@ -13,10 +13,10 @@ footer {
     font-size: 0.9rem;
 }
 
-.brand{
-    font-weight:700;
-    letter-spacing:1px;
-    font-size:1.7rem;
+.brand {
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 1.7rem;
 }
 
 .navbar {
@@ -46,10 +46,11 @@ nav img {
     height: 35px;
     margin-right: 3px;
 }
+
 .main-navbar {
     background: linear-gradient(90deg, #1976d2 60%, #00bcd4 100%) !important;
     border-radius: 0 0 18px 18px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.10);
     padding: 0.2rem 1rem;
 }
 
@@ -65,14 +66,17 @@ nav img {
     align-items: center;
     gap: 0.5em;
 }
-.navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
-    background: rgba(255,255,255,0.13);
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+    background: rgba(255, 255, 255, 0.13);
     color: #e0f7fa !important;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
     text-decoration: none;
 }
+
 .navbar-nav .nav-item.active .nav-link {
-    background: rgba(255,255,255,0.22);
+    background: rgba(255, 255, 255, 0.22);
     color: #fff !important;
 }
 
@@ -80,6 +84,7 @@ nav img {
     .main-navbar {
         padding: 0.5rem 0.7rem;
     }
+
     .navbar-nav .nav-link {
         font-size: 1rem;
         padding: 0.5rem 0.7rem;
@@ -96,10 +101,9 @@ nav img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 50px;
-    width: 55px;
     z-index: 1100;
 }
+
 .navbar-toggle .toggle-bar {
     display: block;
     width: 40px;
@@ -107,14 +111,17 @@ nav img {
     margin: 3.5px 0;
     background: #fff;
     border-radius: 2px;
-    transition: all 0.32s cubic-bezier(.4,2,.6,1);
+    transition: all 0.32s cubic-bezier(.4, 2, .6, 1);
 }
+
 .navbar-toggle.open .toggle-bar:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
+
 .navbar-toggle.open .toggle-bar:nth-child(2) {
     opacity: 0;
 }
+
 .navbar-toggle.open .toggle-bar:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
 }
@@ -306,11 +313,6 @@ nav img {
 }
 
 @media (min-width: 450px) {
-    
-    .col-md-6 {
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
 
     .card:hover.home,
     .card:focus.home {
@@ -336,11 +338,11 @@ nav img {
     nav img {
         height: 30px;
     }
-    
-    body{
+
+    body {
         font-size: 0.7rem;
     }
-    
+
     .jumbotron>h1 {
         font-size: 2.3rem;
     }
