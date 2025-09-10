@@ -27,6 +27,15 @@
         </div>
 
         <div class="card home">
+            <img src="{{ url_for('static', filename='images/AISD.jpg') }}" class="card-img-top" alt="Symptom Diagnoser">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title"> AI Symptom Diagnoser </h5>
+                <p class="card-text">AI-powered tool to check your symptoms and get advice.</p>
+                <a href="{{ url_for('symptom_diagnoser') }}" class="btn btn-primary mt-auto">Check Symptoms</a>
+            </div>
+        </div>
+
+        <div class="card home">
             <img src="{{ url_for('static', filename='images/medication.jpg') }}" class="card-img-top" alt="Medication">
             <div class="card-body d-flex flex-column">
                 <h5 class="card-title">Medications</h5>

@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="jumbotron text-center mb-4">
+    <h1>Symptom Diagnoser</h1>
+    <p>Enter your symptoms to get AI-powered health advice.</p>
+</div>
+<form method="post" class="mx-auto" style="max-width: 500px;">
+    <div class="form-group">
+        <label for="symptoms">Symptoms <span class="text-muted">(comma or " and " separated)</span></label>
+        <input type="text" id="symptoms" name="symptoms" class="form-control" placeholder="e.g. cough, fever and headache" required>
+    </div>
+    <div class="form-group">
+        <label for="age">Gender</label>
+        <select id="gender" name="gender" class="form-control">
+            <option value="">Optional</option>
+            <option value="2">Male</option>
+            <option value="3">Female</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" class="form-control"placeholder="Enter your age (optional)">
+    </div>
+    <div class="form-group">
+        <label for="temp">Temperature</label>
+        <input type="number" step="0.1" id="temp" name="temp" class="form-control"placeholder="Enter your temperature (optional)">
+    </div>
+    <div class="form-group">
+        <label for="BMI">BMI</label>
+        <input type="number" step="0.1" id="BMI" name="BMI" class="form-control"placeholder="Enter your Body Mass Index (optional)">
+    </div>
+    <div class="form-group">
+        <label for="SBP">Systolic blood pressure</label>
+        <input type="number" step="1" id="SBP" name="SBP" class="form-control"placeholder="Enter your blood pressure (optional)">
+    </div>
+    <div class="form-group">
+        <label for="DBP">Diastolic blood pressure</label>
+        <input type="number" step="1" id="DBP" name="DBP" class="form-control"placeholder="Enter your blood pressure (optional)">
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+</form>
+
+
+{% if advice or disease_info or treatment_recommendations %}
+    <div class="card mt-4 mx-auto" style="max-width: 600px;">
+        <div class="card-body">
+            {% if advice %}
+                <h4 class="card-title">Advice</h4>
+                <p class="card-text">{{ advice }}</p>
+            {% endif %}
+            {% if disease_info %}
+                <h4 class="card-title">Possible Conditions</h4>
+                <p class="card-text">{{ disease_info }}</p>
+            {% endif %}
+            {% if treatment_recommendations %}
+                <h4 class="card-title">Recommendation</h4>
+                <p class="card-text">{{ treatment_recommendations }}</p>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}
+
+{% if flash_messages %}
+    <div class="alert alert-danger mt-4 mx-auto" style="max-width: 500px;">
+        {% for message in flash_messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+{% endblock %}

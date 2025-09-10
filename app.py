@@ -11,6 +11,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os
+import json
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
@@ -75,9 +76,11 @@ def login():
 
 @app.route('/profile')
 def profile():
-    if not 'user_id' in session:
-        return redirect(url_for('login'))
-    user = User.query.get(session['user_id'])
+    if 'user_id' in session:
+        id = session['user_id']
+    else:
+        id = 3 # use example profile
+    user = User.query.get(id)
     medical_history = MedicalHistory.query.filter_by(user_id=user.id).all()
     medications = Medication.query.filter_by(user_id=user.id).all()
     return render_template('profile.html', user=user, medical_history=medical_history, medications=medications)
@@ -98,6 +101,8 @@ def add_history():
 
 @app.route('/health_news')
 def health_news():
+    if not 'user_id' in session:
+        return redirect(url_for('login'))
     api_key = 'd258a72b3fc2472bac429e09f6516a03'
     url = f'https://newsapi.org/v2/everything?q=health&language=en&apiKey={api_key}'
     response = requests.get(url)
@@ -119,6 +124,8 @@ def health_news():
 
 @app.route('/meals')
 def meals():
+    if not 'user_id' in session:
+        return redirect(url_for('login'))
     try:
         url = 'https://api.spoonacular.com/recipes/complexSearch'
         params = {
@@ -185,6 +192,48 @@ def add_medication():
         flash('Medication added!', 'success')
         return redirect(url_for('profile'))
     return render_template('add_medication.html')
+
+@app.route('/symptom_diagnoser', methods=['GET', 'POST'])
+def symptom_diagnoser():
+    advice = disease_info = treatment_recommendations = None
+    flash_messages = []
+    if request.method == 'POST':
+        symptoms = request.form.get('symptoms', '')
+        gender = request.form.get('gender', '')
+        age = request.form.get('age', '')
+        temp = request.form.get('temp', '')
+        bmi = request.form.get('BMI', '')
+        sbp = request.form.get('SBP', '')
+        dbp = request.form.get('DBP', '')
+        # Use Infermedica API (public demo)
+        try:
+            headers = {
+                'App-Id': 'demo',
+                'App-Key': 'demo',
+                'Content-Type': 'application/json'
+            }
+            evidence = []
+            for s in [x.strip() for x in symptoms.replace(' and ', ',').split(',') if x.strip()]:
+                evidence.append({"id": s.lower().replace(' ', '_'), "choice_id": "present"})
+            payload = {
+                "sex": "male" if gender == "2" else ("female" if gender == "3" else "male"),
+                "age": int(age) if age else 30,
+                "evidence": evidence
+            }
+            resp = requests.post('https://api.infermedica.com/v3/diagnoser', headers=headers, data=json.dumps(payload), timeout=10)
+            if resp.status_code == 200:
+                data = resp.json()
+                if data.get('conditions'):
+                    disease_info = ', '.join([c['name'] for c in data['conditions'][:3]])
+                    advice = data['conditions'][0]['explanation'] if 'explanation' in data['conditions'][0] else None
+                    treatment_recommendations = data['conditions'][0]['common_name'] if 'common_name' in data['conditions'][0] else None
+                else:
+                    flash_messages.append('No likely condition found. Try different symptoms.')
+            else:
+                flash_messages.append('Symptom diagnoser service unavailable.')
+        except Exception:
+            flash_messages.append('Error processing your request. Please try again.')
+    return render_template('symptom_diagnoser.html', advice=advice, disease_info=disease_info, treatment_recommendations=treatment_recommendations, flash_messages=flash_messages)
 
 @app.route('/logout')
 def logout():
