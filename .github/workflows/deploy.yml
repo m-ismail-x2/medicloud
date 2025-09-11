@@ -1,0 +1,24 @@
+name: Deploy to PythonAnywhere
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Trigger deployment script on PythonAnywhere
+        env:
+          PA_API_TOKEN: ${{ secrets.PA_TOKEN }}
+          PA_USERNAME: ${{ vars.PA_USER }}
+        run: |
+          curl --request POST \
+          --url "https://www.pythonanywhere.com/api/v0/user/$PA_USERNAME/consoles/" \
+          --header "Authorization: Token $PA_API_TOKEN" \
+          --data "executable=python3.12" \
+          --data "command=python3.12 /home/$PA_USERNAME/deploy.py $PA_API_TOKEN\n"
