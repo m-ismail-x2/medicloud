@@ -48,7 +48,7 @@ nav img {
 }
 
 .main-navbar {
-    background: linear-gradient(90deg, #1976d2 60%, #00bcd4 100%) !important;
+    background: linear-gradient(90deg, #1976d2 50%, #0bd 100%) !important;
     border-radius: 0 0 18px 18px;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.10);
     padding: 0.2rem 1rem;
@@ -221,7 +221,7 @@ nav img {
 
 /* Jumbotron */
 .jumbotron {
-    background: linear-gradient(215deg, #00cfcf, #0060c9 45vw);
+    background: linear-gradient(215deg, #0bd, #0060c9 50vw);
     color: white;
     padding: 1rem;
     border-radius: 15px;
@@ -267,7 +267,7 @@ nav img {
 }
 
 .table thead {
-    background: #1976d2;
+    background: #0bd;
     color: #fff;
 }
 
