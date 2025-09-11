@@ -129,7 +129,7 @@ nav img {
 /* Cards */
 .card {
     border: none;
-    border-radius: 15px;
+    border-radius: 20px;
     box-shadow: 5px 8px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
