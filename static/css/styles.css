@@ -57,9 +57,7 @@ nav img {
 .navbar-nav .nav-link {
     color: #fff !important;
     font-weight: 500;
-    font-size: 1.08rem;
     border-radius: 8px;
-    margin: 0 0.2rem;
     padding: 0.5rem 1.1rem;
     transition: background 0.18s, color 0.18s, box-shadow 0.18s;
     display: flex;
@@ -80,20 +78,26 @@ nav img {
     color: #fff !important;
 }
 
-@media (max-width: 768px) {
-    .main-navbar {
-        padding: 0.5rem 0.7rem;
-    }
-
-    .navbar-nav .nav-link {
-        font-size: 1rem;
-        padding: 0.5rem 0.7rem;
-    }
+#navbarNav {
+    width: auto;
+    max-height: 80vh;
+    margin-left: 0;
+    margin-right: 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    border-radius: 12px 0 12px 12px;
+    background: inherit;
+    position: absolute;
+    right: 0;
+    left: auto;
+    top: 100%;
+    z-index: 1050;
+    animation: navbarDropDown 0.3s cubic-bezier(.4,2,.6,1);
+    overflow-y: auto;
 }
 
-
-.navbar-nav {
-    text-align: center;
+@keyframes navbarDropDown {
+    from {opacity: 0;transform: translateY(-10px);}
+    to {opacity: 1;transform: translateY(1px);}
 }
 
 .navbar-toggle {
@@ -178,19 +182,13 @@ nav img {
     border-radius: 20px;
     background-color: #f9f9f9;
     text-align: center;
-    width: 30%;
-    margin: 10px;
-}
-
-@media (max-width: 768px) {
-    .row.equal-height .card {
-        flex: 45%;
-    }
+    margin: 20px;
+    flex: 0 1 calc(45% - 20px);
 }
 
 @media (max-width: 480px) {
     .row.equal-height .card {
-        flex: 1 1 calc(100% - 16px);
+        flex: 100%;
     }
 }
 
@@ -264,6 +262,8 @@ nav img {
     border-radius: 10px;
     overflow: hidden;
     table-layout: fixed;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .table thead {
@@ -278,9 +278,52 @@ nav img {
 
 .table td, .table th {padding: 0.75rem 0.25rem;}
 
-/* Responsive Design */
-@media (max-width: 600px) {
+/* Scroll bar */
 
+::-webkit-scrollbar {
+    width: 20px;
+    background: #e0e7ef;
+}
+::-webkit-scrollbar-thumb {
+    background: #1976d2;
+    border-radius: 15px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #0056b3;
+}
+::-webkit-scrollbar-corner {
+    background: #e0e7ef;
+}
+
+body {
+    scrollbar-width: thick;
+    scrollbar-color: #1976d2 #e0e7ef;
+}
+
+/* Responsive Design */
+
+@media (min-width: 990px) {
+    
+    #navbarNav {
+        width: 100vw;
+        border-radius: 0;
+        transform: translateY(-2px)
+    }
+
+    .navbar-nav {
+        width: -webkit-fill-available;
+        justify-content: space-evenly;
+    }
+
+    main.container-lg {
+        margin-top: 5rem !important;
+        max-width: 1024px;
+    }
+    
+}
+
+@media (max-width: 600px) {
+    
     .jumbotron {
         padding: 0.5rem;
     }
@@ -343,8 +386,9 @@ nav img {
         font-size: 0.7rem;
     }
 
-    .jumbotron>h1 {
+    .jumbotron > h1 {
         font-size: 2.3rem;
     }
 
 }
+
