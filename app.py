@@ -256,7 +256,7 @@ if __name__ == '__main__':
     host, port = None, None
     if len(sys.argv) > 1 and sys.argv[1] != "debug":
         host = sys.argv[1]
-    if len(sys.argv) > 2 and sys.argv[1] != "debug":
+    if len(sys.argv) > 2 and sys.argv[2] != "debug":
         port = sys.argv[2]
     
     app.run(host=host, port=port, debug=bool("debug" in sys.argv))
